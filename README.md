@@ -1,2 +1,4 @@
 # COMP3133Labtest1
-Using socket and mongoose
+This is the Lab test 1 Repository
+
+It functions as a Chat App with Login and Sign Up functionality.
