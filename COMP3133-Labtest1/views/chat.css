@@ -1,0 +1,36 @@
+body{
+
+    background-color: #dda15e;
+}
+
+h1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    color: #fefae0;
+    font-size: 15px;
+    background-color: #606c38;
+    border-radius: 5px 10px 50px;
+    border-color: #283618;
+    width: 170px;
+    height: 20px;
+}
+
+#roomList{
+    margin-left: 37%;
+    margin-bottom: 50px;
+}
+#chat{
+    margin-left: 37%;
+    margin-bottom: 50px;
+}
+button{
+    width: 100px;
+    height: 20px;
+    background-color: #606c38;
+    color: #fefae0;
+  
+
+}

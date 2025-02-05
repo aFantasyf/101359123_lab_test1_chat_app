@@ -1,0 +1,33 @@
+{
+  "name": "comp3133-labtest1",
+  "version": "1.0.0",
+  "description": "My labtest 1 project with login and signup and socket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js & start http://localhost:5000/signup.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aFantasyf/COMP3133Labtest1.git"
+  },
+  "author": "Aayan Farooqui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aFantasyf/COMP3133Labtest1/issues"
+  },
+  "homepage": "https://github.com/aFantasyf/COMP3133Labtest1#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.7",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

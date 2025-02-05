@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="signup.css"> 
+</head>
+<body>
+    <h1>Sign Up Page</h1>
+    <input type="text" id="username" placeholder="Enter username"> 
+    <p></p>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="signup()">Sign Up</button>
+    <p id="message"></p>
+    <p>Already have an Account? <a href="login.html">Login</a></p>
+</body>
+<script>
+    async function signup() {
+        const userName = document.getElementById("username").value
+        const password = document.getElementById("password").value
+
+        const res = await fetch("/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userName, password })
+            });
+
+            const data = await res.json();
+            if(data.token){
+                localStorage.setItem("token", data.token)
+                window.location.href = "chat.html"
+            } else {
+            document.getElementById("message").textContent = data.message || data.error;
+            }
+}
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <h1>Welcome to the Chat Room</h1>
+    <br>    
+    <div id="roomList">
+        <button onclick="joinRoom('Nintendo')">Nintendo</button>
+        <button onclick="joinRoom('Playstation')">Playstation</button>
+        <button onclick="joinRoom('Microsoft')">Microsoft</button>
+        <button onclick="joinRoom('Other')">Other</button>
+    </div>
+    <div id="chat">
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="leaveRoom()">Leave Room</button>
+        <div id="messages"></div>
+    </div>    
+
+    
+</body>
+
+<script>
+    const socket = io();
+
+    function joinRoom(roomName) {
+        socket.emit("joinRoom", roomName);
+        document.getElementById("messages").innerHTML = `<p>Joined room: ${roomName}</p>`;
+    }
+
+    function sendMessage() {
+        const message = document.getElementById("messageInput").value;
+        socket.emit("sendMessage", message);
+        document.getElementById("messageInput").value = '';  // Clear input
+    }
+
+    function leaveRoom() {
+        socket.emit("leaveRoom");
+        document.getElementById("messages").innerHTML += "<p>You left the room</p>";
+    }
+
+    socket.on("message", (msg) => {
+        const messagesDiv = document.getElementById("messages");
+        messagesDiv.innerHTML += `<p>${msg}</p>`;
+    });
+</script>
+</html>

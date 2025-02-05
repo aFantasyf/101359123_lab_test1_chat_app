@@ -1,0 +1,47 @@
+/* Centering everything using flexbox */
+body{
+    background-color: #dda15e;
+
+}
+h1 {
+    font-size: 45px;
+    color: #fefae0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#username{
+    margin-bottom: 5px;
+}
+input {
+    display: flex;
+    justify-content: center;
+    color: #fefae0;
+    font-size: 15px;
+    background-color: #606c38;
+    align-items: center;
+    margin-left: 45%;
+    border-radius: 5px 10px 50px;
+    border-color: #283618;
+    width: 170px;
+    height: 20px;
+}
+
+#password{
+    margin-bottom: 10px;
+}
+
+button{
+    margin-left: 45%;
+    width: 100px;
+    height: 20px;
+    background-color: #606c38;
+    color: #fefae0;
+
+
+}
+
+p{
+    margin-left: 45%;
+}

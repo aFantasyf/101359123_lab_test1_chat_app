@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h1>Login Page</h1>
+
+    <input type="text" id="username" placeholder="Enter in userName">
+    <input type="text" id="password" placeholder="Enter in password">
+    <button onclick="login()">Login</button>
+    <p id="message"></p>
+    <p>Don't have an Account? <a href="signup.html">Sign Up!</a></p>
+</body>
+
+<script>
+            async function login() {
+            const userName = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const res = await fetch("/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userName, password })
+            });
+
+            const data = await res.json();
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+                window.location.href = "chat.html";
+            } else {
+                document.getElementById("message").textContent = data.error;
+            }
+        }
+</script>
+</html>
